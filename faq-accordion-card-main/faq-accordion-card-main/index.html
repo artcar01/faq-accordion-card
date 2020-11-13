@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+      background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+      font-family: 'Kumbh Sans', sans-serif;
+      max-height: fit-content;
+    }
+
+    @media only screen and (max-width: 1440px){
+      .faq {  
+        background-image:  url(images/illustration-woman-online-desktop.svg), url(images/bg-pattern-desktop.svg), url(images/illustration-box-desktop.svg);
+        background-size: auto, contain, auto;
+        background-repeat: no-repeat;
+        background-color: white;
+        border-radius: 20px;
+        margin-left: 150px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-right: 120px;
+        padding-left: 500px;
+        padding-top: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+        width: auto;
+      }
+
+
+    }
+
+    .accordion {
+      background-color: white;
+      color: hsl(238, 29%, 16%);
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      padding-left: 0px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      padding-right: 0px;
+      transition: 0.4s;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    
+    .accordion:hover {
+      background-color: white;
+      color: hsl(14, 88%, 65%);
+    }
+
+    .active {
+      color: hsl(238, 29%, 16%);
+      font-weight: 700;
+    }
+
+    .panel {
+      padding: 0;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .accordion:after {
+      content: url(images/icon-arrow-down.svg);
+      float: right;
+
+    }
+      
+    .active:after {
+      content: url(images/icon-arrow-down.svg); 
+      transform: rotate(180deg);
+    }
+
+    .attribution { 
+      font-size: 11px; 
+      text-align: center; 
+    }
+
+    .attribution a { 
+      color: hsl(228, 45%, 44%); }
+
+    @media only screen and (max-width: 375px){
+      .faq {  
+        background-color: white;
+        border-radius: 20px;
+        margin-left: 20px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        margin-right: 20px;
+        padding-left: 5px;
+        padding-top: 25px;
+        padding-right: 5px;
+        padding-bottom: 25px;
+        width: auto;
+        height: 100%;
+        }
+    }
+
+  </style>
+</head>
+<body>
+
+    <div class="faq">
+      <h2>FAQ</h2>
+      <button class="accordion">How many team members can I invite?</button>
+      <div class="panel">
+        <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+      </div>
+      <hr>
+
+      <button class="accordion">What is the maximum file upload size?</button>
+      <div class="panel">
+        <p> No more than 2GB. All files in your account must fit your allotted storage space.</p>
+      </div>
+      <hr>
+                        
+      <button class="accordion">How do I reset my password?</button>
+      <div class="panel">
+        <p>Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
+      </div>
+      <hr>
+                        
+      <button class="accordion">Can I cancel my subscription?</button>
+      <div class="panel">
+        <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
+      </div>
+      <hr>
+
+      <button class="accordion">Do you provide additional support?</button>
+      <div class="panel">
+        <p> Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+      </div>
+      <hr>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://twitter.com/art_art87">Arturo F. Carida</a>.
+    </div>
+
+  <script>
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+
+  </script>
+  
+</body>
+</html>
